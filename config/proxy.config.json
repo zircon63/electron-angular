@@ -1,0 +1,7 @@
+{
+  "/api/v2": {
+    "target": "https://ucalls.ru:3443",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
