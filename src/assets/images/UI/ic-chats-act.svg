@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/32/ic-chats-act</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="iconSet" transform="translate(-31.000000, -623.000000)" stroke="#282A48" fill="#282A48">
+            <g id="tabbar-activ" transform="translate(0.000000, 617.000000)">
+                <g id="chats" transform="translate(20.000000, 0.000000)">
+                    <g id="Icons/32/ic-chats-act" transform="translate(8.000000, 3.000000)">
+                        <g id="Icons">
+                            <path d="M16.202784,4.00004146 C9.71222273,3.98299273 4.43301247,9.22615506 4.40249091,15.7197588 C4.40141134,17.7068361 4.9088136,19.6611065 5.87637367,21.3964488 L4.04863597,26.7806845 C3.93720177,27.1104924 4.02061531,27.4749702 4.26438573,27.7234093 C4.50815615,27.9718484 4.87085564,28.0620275 5.20251078,27.9566583 L10.8549588,26.1649915 C14.501314,28.0069018 18.8398382,27.8344725 22.3286641,25.7089834 C25.8174901,23.5834943 27.9619785,19.8062931 28,15.7197588 C27.9694799,9.22735973 22.6921453,3.98469325 16.202784,4.00004146 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

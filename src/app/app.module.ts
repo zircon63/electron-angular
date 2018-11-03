@@ -1,13 +1,17 @@
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
-import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compiler';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {TranslationHandler} from './shared/translation.handler';
 import {CoreModule} from './shared/core.module';
 import {CommonModule} from '@angular/common';
+import {AppRoutingModule} from './app-routing.module';
+import {UiModule} from './ui/ui.module';
+import {MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compiler';
+import {TranslationHandler} from './shared/translation.handler';
+import {PagesModule} from './pages/pages.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,6 +20,9 @@ import {CommonModule} from '@angular/common';
   imports: [
     CoreModule,
     CommonModule,
+    AppRoutingModule,
+    PagesModule,
+    NgbModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -28,7 +35,8 @@ import {CommonModule} from '@angular/common';
       },
       missingTranslationHandler: {provide: MissingTranslationHandler, useClass: TranslationHandler},
       useDefaultLang: false
-    })
+    }),
+    UiModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

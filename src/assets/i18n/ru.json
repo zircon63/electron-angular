@@ -1,0 +1,63 @@
+{
+  "header": {
+    "text": "Тут должна быть история о том как этот сайт поможет миру ну или еще что-то"
+  },
+  "languages": {
+    "en": "English",
+    "ru": "Русский"
+  },
+  "common": {
+    "copy": "Копировать",
+    "go-mainpage": "Перейти на главную",
+    "profile-setting": "Настройки профиля",
+    "select-currency": "Выбрать валюту",
+    "select-game": "Выберите игру",
+    "select-language": "Выберите язык",
+    "select-sort-rule": "Выберите правило сортировки",
+    "set-weapon": "Укажите оружие",
+    "sign-in": "Авторизоваться",
+    "show-menu": "Показать меню",
+    "show-more": "Показать еще"
+  },
+  "games": {
+    "730": "CS:GO",
+    "570": "DOTA 2",
+    "578080": "PUBG",
+    "440": "TF2"
+  },
+  "exterior": {
+    "WearCategory0": "Factory New",
+    "WearCategory1": "Minimal Wear",
+    "WearCategory2": "Field-Tested",
+    "WearCategory3": "Well-Worn",
+    "WearCategory4": "Battle-Scarred",
+    "WearCategoryNA": "Not Painted"
+  },
+  "currency": {
+    "currency": "Валюта",
+    "EUR": "Евро",
+    "GBP": "Фунт стерлингов",
+    "RUB": "Рубли",
+    "UAH": "Юань",
+    "USD": "Доллар"
+  },
+  "filter": {
+    "by-date": "По дате",
+    "by-price": "По цене",
+    "by-popular": "Популярность",
+    "from": "От",
+    "hotdeals": "Горячие предложения",
+    "lowest-price": "Наименьшая цена",
+    "price-from": "Минимальная цена",
+    "price-to": "Максимальная цена",
+    "to": "До"
+  },
+  "csgo": {
+    "items": {
+      "rifles": "Винтовки",
+      "pistols": "Пистолеты",
+      "smgs": "Пистолет-пулеметы",
+      "knives": "Ножи"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 72 72" style="enable-background:new 0 0 72 72;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{filter:url(#a);}
+	.st2{fill:#231F20;}
+</style>
+<filter  filterUnits="objectBoundingBox" height="159.2%" id="a" width="159%" x="-29.5%" y="-29.6%">
+	<feGaussianBlur  in="SourceGraphic" stdDeviation="6.847"></feGaussianBlur>
+</filter>
+<path class="st0" d="M-21-20H93V94H-21V-20z"/>
+<g class="st1">
+	<path class="st0" d="M19,8.2h33.6c10,0,18,8.1,18,18v33.4c0,10-8.1,18-18,18H19c-10,0-18-8.1-18-18V26.2C1,16.2,9.1,8.2,19,8.2z"/>
+</g>
+<path class="st2" d="M41.7,58.3L31.7,72l9.6,0"/>
+<g>
+	<path class="st2" d="M54,0H18C8.1,0,0,8.1,0,18v36c0,10,8.1,18,18,18h13.6V58.6C21,56.6,13,47.2,13,36c0-12.7,10.3-23,23-23
+		s23,10.3,23,23c0,10.7-7.4,19.8-17.4,22.3V69l-10,3H54c10,0,18-8.1,18-18V18C72,8.1,63.9,0,54,0z"/>
+	<path class="st2" d="M49,36c0-7.2-5.8-13-13-13s-13,5.8-13,13s5.8,13,13,13S49,43.2,49,36z"/>
+</g>
+<polygon class="st2" points="45.2,63.3 41.7,58.3 41.3,69.1 41.7,69.9 "/>
+</svg>

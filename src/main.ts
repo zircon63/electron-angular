@@ -11,7 +11,6 @@ if (environment.PRODUCTION) {
 
 platformBrowserDynamic().bootstrapModule(AppModule).then((module) => {
   if (!environment.PRODUCTION) {
-    console.log(environment);
     const applicationRef = module.injector.get(ApplicationRef);
     const appComponent = applicationRef.components[0];
     enableDebugTools(appComponent);

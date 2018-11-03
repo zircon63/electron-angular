@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="24px" viewBox="0 0 20 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/32/ic-contacts-nrm</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="iconSet" transform="translate(-178.000000, -525.000000)" stroke="#282A48">
+            <g id="tabbar-nrm" transform="translate(0.000000, 518.000000)">
+                <g id="contacts" transform="translate(164.000000, 0.000000)">
+                    <g id="Icons/32/ic-contacts-nrm" transform="translate(8.000000, 3.000000)">
+                        <g>
+                            <path d="M10.5,20 L25,20 L25,25.6999999 L25,25.6999999 C25,26.4179701 24.4179701,27 23.6999999,27 L10.5,27 L10.5,27 C8.56700338,27 7,25.4329966 7,23.5 L7,23.5 L7,23.5 C7,21.5670034 8.56700338,20 10.5,20 Z" id="Rectangle"></path>
+                            <path d="M7,23 L7,8 C7,6.34314575 8.20883118,5 9.7,5 L22.3,5 C23.7911688,5 25,6.34314575 25,8 L25,23" id="Rectangle-2"></path>
+                            <path d="M10.5,23.5 L24.5,23.5" id="Path-5"></path>
+                            <path d="M16,5 L22,5 L22,13.1333003 L22,13.1333003 C22,13.6526162 21.5790112,14.073605 21.0596953,14.073605 C20.8581557,14.073605 20.6619486,14.0088508 20.5,13.8888889 L19.5952276,13.2186871 L19.5952276,13.2186871 C19.2416305,12.9567633 18.7583695,12.9567633 18.4047724,13.2186871 L17.5,13.8888889 L17.5,13.8888889 C17.0826999,14.1980001 16.4938273,14.1102956 16.1847161,13.6929955 C16.0647542,13.5310469 16,13.3348399 16,13.1333003 L16,5 Z" id="Rectangle-10"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

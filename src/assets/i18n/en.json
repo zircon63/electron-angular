@@ -1,0 +1,63 @@
+{
+  "header": {
+    "text": "There should be a story about how this site will help the world or something else"
+  },
+  "languages": {
+    "en": "English",
+    "ru": "Русский"
+  },
+  "common": {
+    "copy": "Copy",
+    "go-mainpage": "Go to main page",
+    "profile-setting": "Profile settings",
+    "select-currency": "Select currency",
+    "select-game": "Select game",
+    "select-language": "Select language",
+    "select-sort-rule": "Select sorting rule",
+    "set-weapon": "Set weapon",
+    "sign-in": "Sin in",
+    "show-menu": "Show menu",
+    "show-more": "Show more"
+  },
+  "games": {
+    "730": "CS:GO",
+    "570": "DOTA 2",
+    "578080": "PUBG",
+    "440": "TF2"
+  },
+  "exterior": {
+    "WearCategory0": "Factory New",
+    "WearCategory1": "Minimal Wear",
+    "WearCategory2": "Field-Tested",
+    "WearCategory3": "Well-Worn",
+    "WearCategory4": "Battle-Scarred",
+    "WearCategoryNA": "Not Painted"
+  },
+  "currency": {
+    "currency": "Currency",
+    "EUR": "Euro",
+    "GBP": "Pound sterling",
+    "RUB": "Ruble",
+    "UAH": "Yuan",
+    "USD": "Dollar"
+  },
+  "filter": {
+    "by-date": "By Date",
+    "by-price": "By Price",
+    "by-popular": "Popular",
+    "from": "From",
+    "hotdeals": "View hotdeals",
+    "lowest-price": "View lowest price",
+    "price-from": "Min price",
+    "price-to": "Max price",
+    "to": "To"
+  },
+  "csgo": {
+    "items": {
+      "rifles": "Rifles",
+      "pistols": "Pistols",
+      "smgs": "SMGs",
+      "knives": "Knives"
+    }
+  }
+}
