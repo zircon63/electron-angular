@@ -5,12 +5,12 @@ import {AppModule} from './app/app.module';
 import {enableDebugTools} from '@angular/platform-browser';
 import {environment} from './environments/environment';
 
-if (environment.production) {
+if (environment.PRODUCTION) {
   enableProdMode();
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule).then((module) => {
-  if (!environment.production) {
+  if (!environment.PRODUCTION) {
     console.log(environment);
     const applicationRef = module.injector.get(ApplicationRef);
     const appComponent = applicationRef.components[0];
