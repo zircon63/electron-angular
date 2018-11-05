@@ -22,19 +22,24 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "statsJson": true,
+            "statsJson": false,
             "assets": [
               "src/favicon.ico",
               {
                 "glob": "**/*",
                 "input": "src/assets/",
                 "output": "./assets/"
-              }
+              },
+              "src/favicon.ico",
+              "src/favicon.png",
+              "src/favicon.icns",
+              "src/favicon.256x256.png",
+              "src/favicon.512x512.png"
             ],
             "styles": [
               "src/assets/styles/app.scss",
               "node_modules/@nebular/theme/styles/prebuilt/corporate.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
