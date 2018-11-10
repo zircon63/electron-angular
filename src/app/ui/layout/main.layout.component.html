@@ -2,17 +2,10 @@
   <nb-layout-header>
     <ng-content select="app-header"></ng-content>
   </nb-layout-header>
-  <nb-sidebar state="compacted" tag="menu-sidebar">
+  <nb-sidebar tag="menu-sidebar">
     <ng-content select="app-menu"></ng-content>
   </nb-sidebar>
-  <nb-layout-column start="true">
+  <nb-layout-column>
     <ng-content select="router-outlet"></ng-content>
   </nb-layout-column>
-  <nb-layout-column left="true">
-    <h2>asd</h2>
-    <!--<ng-content select="router-outlet"></ng-content>-->
-  </nb-layout-column>
-  <!--  <nb-sidebar state="collapsed" tag="right-sidebar">
-      <ng-content select="right-sidebar-content"></ng-content>
-    </nb-sidebar>-->
 </nb-layout>

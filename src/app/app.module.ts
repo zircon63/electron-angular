@@ -1,17 +1,18 @@
+import {CommonModule} from '@angular/common';
+import {HttpClient} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compiler';
+import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
-import {HttpClient} from '@angular/common/http';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {CoreModule} from './shared/core.module';
-import {CommonModule} from '@angular/common';
-import {AppRoutingModule} from './app-routing.module';
-import {UiModule} from './ui/ui.module';
-import {MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compiler';
-import {TranslationHandler} from './shared/translation.handler';
+import {AuthModule} from './auth/auth.module';
 import {PagesModule} from './pages/pages.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CoreModule} from './shared/core.module';
+import {TranslationHandler} from './shared/translation.handler';
+import {UiModule} from './ui/ui.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CoreModule,
     CommonModule,
     AppRoutingModule,
+    AuthModule,
     PagesModule,
     NgbModule.forRoot(),
     TranslateModule.forRoot({

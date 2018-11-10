@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-info" [routerLink]="['../add']">ADD</button>
+<table class="table table-hover">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Number</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let room of (rooms$ | async)">
+    <th scope="row">{{room.id}}</th>
+    <td>{{room.number}}</td>
+    <td>
+      <button type="button" class="btn btn-success" [routerLink]="['../edit', room.id]">EDIT</button>
+      <button type="button" class="btn btn-danger" (click)="remove(room)">REMOVE</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

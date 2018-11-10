@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-pages',
@@ -7,15 +7,9 @@ import {Component, OnInit} from '@angular/core';
       <app-header></app-header>
       <app-menu></app-menu>
       <router-outlet></router-outlet>
-      <router-outlet name="section1"></router-outlet>
     </app-main-layout>
   `
 })
 
-export class PagesComponent implements OnInit {
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class PagesComponent {
 }
