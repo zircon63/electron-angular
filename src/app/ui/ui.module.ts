@@ -4,6 +4,7 @@ import {
   NbActionsModule,
   NbButtonModule,
   NbCardModule,
+  NbCheckboxModule,
   NbInputModule,
   NbLayoutModule,
   NbListModule,
@@ -28,7 +29,8 @@ const NB_MODULES = [
   NbInputModule,
   NbToastrModule,
   NbUserModule,
-  NbListModule
+  NbListModule,
+  NbCheckboxModule
 ];
 
 const UI_PROVIDERS = [
