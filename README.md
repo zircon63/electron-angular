@@ -1,4 +1,4 @@
-# UCALLS
+# Electron + Angular 6
 
 ## Запуск Development-сервера
 
