@@ -1,20 +1,29 @@
-<button type="button" class="btn btn-info" [routerLink]="['../add']">ADD</button>
-<table class="table table-hover">
-  <thead class="thead-dark">
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">Number</th>
-    <th scope="col">Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let room of (rooms$ | async)">
-    <th scope="row">{{room.id}}</th>
+<app-crud-table [items]="rooms" #crud>
+  <ng-template #tableHead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Number</th>
+      <th scope="col">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template #readTemplate let-room>
+    <td>{{room.id}}</td>
     <td>{{room.number}}</td>
     <td>
-      <button type="button" class="btn btn-success" [routerLink]="['../edit', room.id]">EDIT</button>
-      <button type="button" class="btn btn-danger" (click)="remove(room)">REMOVE</button>
+      <input type="button" value="Edit" class="btn btn-default" (click)="edit(room)"/>
+      <input type="button" value="Remove" (click)="remove(room)" class="btn btn-danger"/>
     </td>
-  </tr>
-  </tbody>
-</table>
+  </ng-template>
+  <ng-template #editTemplate>
+    <td>
+      <input type="text" [(ngModel)]="editedRoom.id" readonly disabled class="form-control"/>
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="editedRoom.number" class="form-control"/>
+    </td>
+    <td>
+      <input type="button" value="Save" (click)="save()" class="btn btn-success"/>
+      <input type="button" value="Cancel" (click)="cancel()" class="btn btn-warning"/>
+    </td>
+  </ng-template>
+</app-crud-table>

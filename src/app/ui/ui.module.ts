@@ -14,6 +14,8 @@ import {
   NbToastrModule,
   NbUserModule
 } from '@nebular/theme';
+import {SharedModule} from '../shared/shared.module';
+import {CrudTableComponent} from './components/crud-table/crud-table.component';
 import {HeaderComponent} from './components/header/header.component';
 import {MenuComponent} from './components/menu/menu.component';
 import {MainLayoutComponent} from './layout/main.layout.component';
@@ -47,7 +49,8 @@ const UI_PROVIDERS = [
 const COMPONENTS = [
   MainLayoutComponent,
   MenuComponent,
-  HeaderComponent
+  HeaderComponent,
+  CrudTableComponent
 ];
 
 const PIPES = [];
@@ -55,7 +58,7 @@ const PIPES = [];
 const ENTRY_COMPONENTS = [];
 
 @NgModule({
-  imports: [...NB_MODULES, RouterModule],
+  imports: [...NB_MODULES, RouterModule, SharedModule],
   exports: [...COMPONENTS, ...NB_MODULES],
   declarations: [...COMPONENTS, ...PIPES],
   entryComponents: [...ENTRY_COMPONENTS]

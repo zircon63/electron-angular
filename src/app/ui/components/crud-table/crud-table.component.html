@@ -1,0 +1,13 @@
+<button type="button" class="btn btn-info" (click)="add()">ADD</button>
+<table class="table table-hover">
+  <thead class="thead-dark">
+  <ng-template [ngTemplateOutlet]="templateHead"></ng-template>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of items">
+    <ng-template [ngTemplateOutlet]="loadTemplate(item)"
+                 [ngTemplateOutletContext]="{ $implicit: item}">
+    </ng-template>
+  </tr>
+  </tbody>
+</table>

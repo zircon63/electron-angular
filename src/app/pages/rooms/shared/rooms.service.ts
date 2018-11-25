@@ -1,35 +1,46 @@
 import {Injectable} from '@angular/core';
-import {NbToastrService} from '@nebular/theme';
-import {Observable, Subject} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
 import {DatabaseService} from '../../../shared/database.service';
 import {Room} from './room';
 
 @Injectable()
 export class RoomsService {
-  private roomsSubject: Subject<Room[]> = new Subject<Room[]>();
+  private roomsSubject: BehaviorSubject<Room[]> = new BehaviorSubject<Room[]>(null);
 
-  constructor(private db: DatabaseService,
-              private toastrService: NbToastrService) {
+  constructor(private db: DatabaseService) {
   }
 
   get rooms(): Observable<Room[]> {
     return this.roomsSubject.asObservable();
   }
 
-  getAll() {
+  getAll(): Observable<Room[]> {
     const query = 'SELECT * FROM room';
-    this.db.all(query)
+    return this.db.all(query)
       .pipe(
         map((values: Room[]) => values.map((value: Room) => new Room(value)))
-      ).subscribe((rooms: Room[]) => this.roomsSubject.next(rooms));
+      );
   }
 
-  remove(room: Room) {
+  create(room: Room) {
+    const query = `INSERT INTO room (number) VALUES('${room.number}')`;
+    return this.db.get(query).pipe(
+      switchMap(() => this.getAll())
+    );
+  }
+
+  edit(room: Room): Observable<Room[]> {
+    const query = `UPDATE room SET number= '${room.number}' WHERE room.id = ${room.id}`;
+    return this.db.get(query).pipe(
+      switchMap(() => this.getAll())
+    );
+  }
+
+  remove(room: Room): Observable<Room[]> {
     const query = `DELETE FROM room WHERE room.id = ${room.id}`;
-    this.db.get(query).subscribe(() => {
-      this.toastrService.success(`Success remove room: ${room.id}`);
-      this.getAll();
-    });
+    return this.db.get(query).pipe(
+      switchMap(() => this.getAll())
+    );
   }
 }
