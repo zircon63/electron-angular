@@ -10,7 +10,7 @@ export class DatabaseService {
     if (window.require) {
       try {
         const sqlite3 = window.require('sqlite3').verbose();
-        this.db = new sqlite3.Database('database.db');
+        this.db = new sqlite3.Database('database/database.db');
       } catch (e) {
         throw e;
       }
@@ -25,7 +25,10 @@ export class DatabaseService {
         if (err) {
           this.ngZone.run(() => observer.error(err));
         } else {
-          this.ngZone.run(() => observer.next(result));
+          this.ngZone.run(() => {
+            observer.next(result);
+            observer.complete();
+          });
         }
       });
     });
@@ -37,7 +40,10 @@ export class DatabaseService {
         if (err) {
           this.ngZone.run(() => observer.error(err));
         } else {
-          this.ngZone.run(() => observer.next(result));
+          this.ngZone.run(() => {
+            observer.next(result);
+            observer.complete();
+          });
         }
       });
     });

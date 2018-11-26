@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../shared/shared.module';
 import {UiModule} from '../../ui/ui.module';
-import { ServicesComponent } from './services.component';
-import { ServiceListComponent } from './service-list/service-list.component';
+import {ServiceListComponent} from './service-list/service-list.component';
 import {ServiceRoutingModule} from './service-routing.module';
-import {ServiceService} from './shared/service.service';
+import {ServicesComponent} from './services.component';
 
 
 @NgModule({
@@ -15,7 +14,7 @@ import {ServiceService} from './shared/service.service';
   ],
   exports: [],
   declarations: [ServicesComponent, ServiceListComponent],
-  providers: [ServiceService],
+  providers: [],
 })
 export class ServicesModule {
 }

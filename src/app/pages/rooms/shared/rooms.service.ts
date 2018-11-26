@@ -5,7 +5,9 @@ import {DatabaseService} from '../../../shared/database.service';
 import {Room} from './room';
 import {CrudOperation} from '../../shared/crud.operation';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class RoomsService implements CrudOperation<Room> {
 
   constructor(private db: DatabaseService) {

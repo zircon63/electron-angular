@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
 import {DatabaseService} from '../../../shared/database.service';
 import {CrudOperation} from '../../shared/crud.operation';
 import {Service} from './service';
-import {Observable} from 'rxjs';
-import {map, switchMap} from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class ServiceService implements CrudOperation<Service> {
 

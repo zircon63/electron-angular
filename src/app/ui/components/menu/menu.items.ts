@@ -17,5 +17,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Guests',
     link: '/guests/list'
+  },
+  {
+    title: 'Room Services',
+    link: '/room-services/list'
   }
 ];

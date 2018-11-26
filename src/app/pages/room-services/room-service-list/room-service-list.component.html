@@ -1,0 +1,32 @@
+<form [formGroup]="form">
+  <nb-card>
+    <nb-card-header>
+      Room
+    </nb-card-header>
+    <nb-card-body>
+      <nb-radio-group [(ngModel)]="selected_room">
+        <nb-radio
+          *ngFor="let room of rooms"
+          [value]="room.id">
+          {{ room.number }}
+        </nb-radio>
+      </nb-radio-group>
+    </nb-card-body>
+  </nb-card>
+  <nb-card>
+    <nb-card-header>
+      Services
+    </nb-card-header>
+    <nb-card-body>
+      <nb-checkbox
+        *ngFor="let service of services">
+        {{ service.name }} , {{service.price}}
+      </nb-checkbox>
+    </nb-card-body>
+  </nb-card>
+  {{selected_room}}
+  <button nbButton>OK</button>
+
+</form>
+
+
