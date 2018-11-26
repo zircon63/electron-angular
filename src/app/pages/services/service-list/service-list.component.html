@@ -3,16 +3,18 @@
   <ng-template #tableHead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Number</th>
+      <th scope="col">Price</th>
+      <th scope="col">Name</th>
       <th scope="col">Action</th>
     </tr>
   </ng-template>
-  <ng-template #readTemplate let-room>
-    <td>{{room.id}}</td>
-    <td>{{room.number}}</td>
+  <ng-template #readTemplate let-service>
+    <td>{{service.id}}</td>
+    <td>{{service.price}}</td>
+    <td>{{service.name}}</td>
     <td>
-      <input type="button" value="Edit" class="btn btn-default" (click)="edit(room)"/>
-      <input type="button" value="Remove" (click)="remove(room)" class="btn btn-danger"/>
+      <input type="button" value="Edit" class="btn btn-default" (click)="edit(service)"/>
+      <input type="button" value="Remove" (click)="remove(service)" class="btn btn-danger"/>
     </td>
   </ng-template>
   <ng-template #editTemplate>
@@ -20,7 +22,10 @@
       <input type="text" [(ngModel)]="crud.editedItem.id" readonly disabled class="form-control"/>
     </td>
     <td>
-      <input type="text" [(ngModel)]="crud.editedItem.number" class="form-control"/>
+      <input type="text" [(ngModel)]="crud.editedItem.price" class="form-control"/>
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="crud.editedItem.name" class="form-control"/>
     </td>
     <td>
       <input type="button" value="Save" (click)="save()" class="btn btn-success"/>

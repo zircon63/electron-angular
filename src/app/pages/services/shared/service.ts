@@ -1,4 +1,6 @@
-export class Service {
+import {BaseEntity} from '../../shared/base.entity';
+
+export class Service implements BaseEntity {
   id: number;
   price: number;
   name: string;
