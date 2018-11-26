@@ -1,18 +1,14 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
 import {DatabaseService} from '../../../shared/database.service';
 import {Room} from './room';
+import {CrudOperation} from '../../shared/crud.operation';
 
 @Injectable()
-export class RoomsService {
-  private roomsSubject: BehaviorSubject<Room[]> = new BehaviorSubject<Room[]>(null);
+export class RoomsService implements CrudOperation<Room> {
 
   constructor(private db: DatabaseService) {
-  }
-
-  get rooms(): Observable<Room[]> {
-    return this.roomsSubject.asObservable();
   }
 
   getAll(): Observable<Room[]> {
@@ -42,5 +38,12 @@ export class RoomsService {
     return this.db.get(query).pipe(
       switchMap(() => this.getAll())
     );
+  }
+
+  emptyInstace(): Room {
+    return {
+      id: null,
+      number: '#'
+    };
   }
 }

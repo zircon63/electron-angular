@@ -8,6 +8,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Rooms',
-    link: 'rooms/list'
+    link: '/rooms/list'
+  },
+  {
+    title: 'Services',
+    link: '/services/list'
+  },
+  {
+    title: 'Guests',
+    link: '/guests/list'
   }
 ];

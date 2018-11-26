@@ -1,36 +1,18 @@
-import {Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
+import {Component, ContentChild, Input, TemplateRef} from '@angular/core';
+import {BaseEntity} from '../../../pages/shared/base.entity';
 
 @Component({
   selector: 'app-crud-table',
   templateUrl: './crud-table.component.html',
   styleUrls: ['./crud-table.component.scss']
 })
-export class CrudTableComponent implements OnInit {
+export class CrudTableComponent<T extends BaseEntity> {
   @ContentChild('tableHead') templateHead: TemplateRef<any>;
   @ContentChild('readTemplate') readTemplate: TemplateRef<any>;
   @ContentChild('editTemplate') editTemplate: TemplateRef<any>;
-  @Input() items: any;
-  @Output() create: EventEmitter<any> = new EventEmitter();
-  editedItem: any;
+  @Input() items: T[];
+  editedItem: T;
   isNewRecord: boolean;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
-  add() {
-    console.log('123');
-  }
-
-  remove() {
-
-  }
-
-  edit() {
-    console.log('edit');
-  }
 
   loadTemplate(item: any) {
     if (this.editedItem && this.editedItem.id === item.id) {
@@ -38,6 +20,24 @@ export class CrudTableComponent implements OnInit {
     } else {
       return this.readTemplate;
     }
+  }
+
+  add(item: T) {
+    this.items.push(item);
+    this.edit(item);
+    this.isNewRecord = true;
+  }
+
+  edit(item: T) {
+    this.editedItem = item;
+  }
+
+  cancel() {
+    if (this.isNewRecord) {
+      this.items.pop();
+      this.isNewRecord = false;
+    }
+    this.editedItem = null;
   }
 
 

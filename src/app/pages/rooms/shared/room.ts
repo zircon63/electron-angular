@@ -1,4 +1,6 @@
-export class Room {
+import {BaseEntity} from '../../shared/base.entity';
+
+export class Room implements BaseEntity {
   id: number;
   number: string;
 
