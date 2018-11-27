@@ -9,6 +9,7 @@ import {
   NbLayoutModule,
   NbListModule,
   NbMenuModule,
+  NbRadioModule,
   NbSidebarModule,
   NbThemeModule,
   NbToastrModule,
@@ -32,6 +33,7 @@ const NB_MODULES = [
   NbToastrModule,
   NbUserModule,
   NbListModule,
+  NbRadioModule,
   NbCheckboxModule
 ];
 

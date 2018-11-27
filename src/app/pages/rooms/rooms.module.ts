@@ -5,7 +5,6 @@ import {UiModule} from '../../ui/ui.module';
 import {RoomListComponent} from './room-list/room-list.component';
 import {RoomsRoutingModule} from './rooms-routing.module';
 import {RoomsComponent} from './rooms.component';
-import {RoomsService} from './shared/rooms.service';
 
 
 @NgModule({
@@ -20,7 +19,7 @@ import {RoomsService} from './shared/rooms.service';
     RoomsComponent,
     RoomListComponent
   ],
-  providers: [RoomsService],
+  providers: [],
 })
 export class RoomsModule {
 }

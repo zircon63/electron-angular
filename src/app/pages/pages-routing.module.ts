@@ -19,6 +19,10 @@ const routes: Routes = [
       {
         path: 'guests',
         loadChildren: './guests/guests.module#GuestsModule',
+      },
+      {
+        path: 'room-services',
+        loadChildren: './room-services/room-services.module#RoomServicesModule',
       }
     ],
     canActivate: [AuthGuard]
