@@ -6,6 +6,7 @@ import {RoomsService} from '../../rooms/shared/rooms.service';
 import {ServiceService} from '../../services/shared/service.service';
 import {CrudOperation} from '../../shared/crud.operation';
 import {RoomService} from './room-service';
+import {Room} from '../../rooms/shared/room';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class RoomServicesService implements CrudOperation<RoomService> {
   constructor(private roomsService: RoomsService,
               private serviceService: ServiceService,
               private db: DatabaseService) {
+  }
+
+  get Rooms$(): Observable<Room[]> {
+    return this.roomsService.getAll();
   }
 
   getRoomsAndServices() {
@@ -43,6 +48,14 @@ export class RoomServicesService implements CrudOperation<RoomService> {
     };
   }
 
+  get(id: number): Observable<RoomService[]> {
+    const query = `SELECT * FROM room_services WHERE room_services.room_id = '${id}'`;
+    return this.db.all(query)
+      .pipe(
+        map((values: RoomService[]) => values.map((value: RoomService) => new RoomService(value)))
+      );
+  }
+
   getAll(): Observable<RoomService[]> {
     const query = 'SELECT * FROM room_services';
     return this.db.all(query)
@@ -52,7 +65,7 @@ export class RoomServicesService implements CrudOperation<RoomService> {
   }
 
   remove(item: RoomService): Observable<RoomService[]> {
-    const query = `DELETE FROM room_services WHERE room_services.id = ${item.id}`;
+    const query = `DELETE FROM room_services WHERE room_services.room_id = '${item.room_id}' and room_services.service_id = '${item.service_id}'`;
     return this.db.get(query).pipe(
       switchMap(() => this.getAll())
     );

@@ -12,7 +12,7 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule, MatSelectModule,
 } from '@angular/material';
 
 
@@ -23,7 +23,8 @@ const MD_MODULES = [
   MatSidenavModule,
   MatIconModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatSelectModule
 ];
 
 const UI_PROVIDERS = [];

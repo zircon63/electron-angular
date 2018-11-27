@@ -1,4 +1,16 @@
 <form [formGroup]="form">
+  <mat-form-field color="accent">
+    <mat-select placeholder="Select Room" formControlName="room">
+      <mat-option *ngFor="let room of rooms" [value]="room.id">
+        {{room.number}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <mat-select placeholder="Services" multiple formControlName="services" #serviceSelect>
+      <mat-option *ngFor="let service of services" [value]="service.id">
+        {{service.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </form>
-
-
