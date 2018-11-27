@@ -1,11 +1,10 @@
-<nb-layout>
-  <nb-layout-header>
-    <ng-content select="app-header"></ng-content>
-  </nb-layout-header>
-  <nb-sidebar tag="menu-sidebar">
+<ng-content select="app-header"></ng-content>
+<mat-drawer-container [hasBackdrop]="true">
+  <mat-drawer mode="over" [(opened)]="menuVisible">
     <ng-content select="app-menu"></ng-content>
-  </nb-sidebar>
-  <nb-layout-column>
+  </mat-drawer>
+  <mat-drawer-content>
+    <ng-content select="app-header"></ng-content>
     <ng-content select="router-outlet"></ng-content>
-  </nb-layout-column>
-</nb-layout>
+  </mat-drawer-content>
+</mat-drawer-container>

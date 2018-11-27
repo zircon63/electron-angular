@@ -1,17 +1,6 @@
-<nb-layout>
-  <nb-layout-header>Auth Form</nb-layout-header>
-  <nb-layout-column>
-    <form [formGroup]="loginForm" (submit)="login()">
-      <nb-card>
-        <nb-card-body>
-          <input type="text" nbInput fullWidth placeholder="login" formControlName="login">
-          <input type="password" nbInput fullWidth placeholder="password" formControlName="password">
-        </nb-card-body>
-        <nb-card-footer>
-          <button nbButton type="submit">Login</button>
-        </nb-card-footer>
-      </nb-card>
-    </form>
-  </nb-layout-column>
-</nb-layout>
+<form [formGroup]="loginForm" (submit)="login()">
+  <input type="text" placeholder="login" formControlName="login">
+  <input type="password" placeholder="password" formControlName="password">
+  <button nbButton type="submit">Login</button>
+</form>
 

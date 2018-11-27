@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {DataListComponent} from '../../../ui/components/data-list/data-list.component';
-import {NbToastrService} from '@nebular/theme';
 import {ServiceService} from '../shared/service.service';
 import {Service} from '../shared/service';
 
@@ -10,9 +9,8 @@ import {Service} from '../shared/service';
   styleUrls: ['./service-list.component.scss']
 })
 export class ServiceListComponent extends DataListComponent<Service> {
-  constructor(protected serviceService: ServiceService,
-              protected toastrService: NbToastrService) {
-    super(serviceService, toastrService);
+  constructor(protected serviceService: ServiceService) {
+    super(serviceService);
   }
 
   getInstanceItem(data: Service): Service {

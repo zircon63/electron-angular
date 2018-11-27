@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-info" (click)="add()">ADD</button>
+<button type="button" mat-button color="accent" (click)="add()">ADD GUEST</button>
 <app-crud-table [items]="items" #crud>
   <ng-template #tableHead>
     <tr>
@@ -13,23 +13,29 @@
     <td>{{guest.first_name}}</td>
     <td>{{guest.last_name}}</td>
     <td>
-      <input type="button" value="Edit" class="btn btn-default" (click)="edit(guest)"/>
-      <input type="button" value="Remove" (click)="remove(guest)" class="btn btn-danger"/>
+      <button mat-button (click)="edit(guest)" color="accent">Edit</button>
+      <button mat-button (click)="remove(guest)" color="warn">Remove</button>
     </td>
   </ng-template>
   <ng-template #editTemplate>
     <td>
-      <input type="text" [(ngModel)]="crud.editedItem.id" readonly disabled class="form-control"/>
+      <mat-form-field>
+        <input type="text" matInput [(ngModel)]="crud.editedItem.id" readonly disabled/>
+      </mat-form-field>
     </td>
     <td>
-      <input type="text" [(ngModel)]="crud.editedItem.first_name" class="form-control"/>
+      <mat-form-field>
+        <input type="text" matInput [(ngModel)]="crud.editedItem.first_name"/>
+      </mat-form-field>
     </td>
     <td>
-      <input type="text" [(ngModel)]="crud.editedItem.last_name" class="form-control"/>
+      <mat-form-field>
+        <input type="text" matInput [(ngModel)]="crud.editedItem.last_name"/>
+      </mat-form-field>
     </td>
     <td>
-      <input type="button" value="Save" (click)="save()" class="btn btn-success"/>
-      <input type="button" value="Cancel" (click)="cancel()" class="btn btn-warning"/>
+      <button mat-button (click)="save()" color="accent">Save</button>
+      <button mat-button (click)="cancel()" color="accent">Cancel</button>
     </td>
   </ng-template>
 </app-crud-table>

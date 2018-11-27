@@ -2,8 +2,6 @@ import {OnDestroy, ViewChild} from '@angular/core';
 import {CrudTableComponent} from '../crud-table/crud-table.component';
 import {CrudOperation} from '../../../pages/shared/crud.operation';
 import {Subscription} from 'rxjs';
-import {NbToastrService} from '@nebular/theme';
-import {Room} from '../../../pages/rooms/shared/room';
 import {BaseEntity} from '../../../pages/shared/base.entity';
 
 export abstract class DataListComponent<T extends BaseEntity> implements OnDestroy {
@@ -12,15 +10,13 @@ export abstract class DataListComponent<T extends BaseEntity> implements OnDestr
   emptyItem: T;
   private items$: Subscription;
 
-  protected constructor(protected service: CrudOperation<T>,
-                        protected toastrService: NbToastrService) {
+  protected constructor(protected service: CrudOperation<T>) {
     this.emptyItem = service.emptyInstace();
     this.items$ = service.getAll().subscribe(items => this.items = items);
   }
 
   onEdit() {
     this.service.edit(this.crud.editedItem).subscribe((items: T[]) => {
-      this.toastrService.success(`Success update`);
       this.items = items;
       this.crud.editedItem = null;
     });
@@ -28,7 +24,6 @@ export abstract class DataListComponent<T extends BaseEntity> implements OnDestr
 
   onCreate() {
     this.service.create(this.crud.editedItem).subscribe((items: T[]) => {
-      this.toastrService.success(`Success create`);
       this.items = items;
       this.crud.isNewRecord = false;
       this.crud.editedItem = null;
@@ -37,7 +32,6 @@ export abstract class DataListComponent<T extends BaseEntity> implements OnDestr
 
   remove(item: T) {
     this.service.remove(item).subscribe((items: T[]) => {
-      this.toastrService.success(`Success remove`);
       this.items = items;
     });
   }

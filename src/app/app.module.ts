@@ -12,6 +12,7 @@ import {PagesModule} from './pages/pages.module';
 import {CoreModule} from './shared/core.module';
 import {TranslationHandler} from './shared/translation.handler';
 import {UiModule} from './ui/ui.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {UiModule} from './ui/ui.module';
       missingTranslationHandler: {provide: MissingTranslationHandler, useClass: TranslationHandler},
       useDefaultLang: false
     }),
-    UiModule.forRoot()
+    UiModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

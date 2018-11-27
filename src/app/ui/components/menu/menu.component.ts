@@ -1,15 +1,16 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {NbMenuItem} from '@nebular/theme';
 import {MENU_ITEMS} from './menu.items';
 
 @Component({
   selector: 'app-menu',
   template: `
-    <nb-menu [items]="items"></nb-menu>
+    <div class="menu">
+      <button mat-button *ngFor="let item of items" [routerLink]="[item.link]">{{item.title}}</button>
+    </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class MenuComponent {
-  items: NbMenuItem[] = MENU_ITEMS;
+  items = MENU_ITEMS;
 }

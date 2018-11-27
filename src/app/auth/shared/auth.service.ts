@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {NbToastrService} from '@nebular/theme';
-import {empty} from "rxjs";
+import {EMPTY} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import {DatabaseService} from '../../shared/database.service';
@@ -14,7 +13,6 @@ export class AuthService {
   private crypto: any;
 
   constructor(private db: DatabaseService,
-              private toastrService: NbToastrService,
               private router: Router) {
     if (window.require) {
       try {
@@ -28,7 +26,7 @@ export class AuthService {
   }
 
   get isAuth(): boolean {
-    return true;//!!this.employee;
+    return true; // !!this.employee;
   }
 
   get currentEmployee(): Employee {
@@ -53,8 +51,7 @@ export class AuthService {
 
     this.db.get<Employee>(query).pipe(
       catchError((error: Error) => {
-        this.toastrService.danger(error);
-        return empty();
+        return EMPTY;
       }),
       map(value => new Employee(value))
     )

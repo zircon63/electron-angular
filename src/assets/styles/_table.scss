@@ -1,0 +1,15 @@
+@import "~@angular/material/theming";
+.table {
+  width: 100%;
+
+  th,
+  td {
+    text-align: center;
+    padding: 16px 0;
+    display: table-cell;
+  }
+
+  th {
+    border-bottom: 1px solid map-get($mat-gray, A400);
+  }
+}

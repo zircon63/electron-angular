@@ -1,52 +1,32 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {
-  NbActionsModule,
-  NbButtonModule,
-  NbCardModule,
-  NbCheckboxModule,
-  NbInputModule,
-  NbLayoutModule,
-  NbListModule,
-  NbMenuModule,
-  NbRadioModule,
-  NbSidebarModule,
-  NbThemeModule,
-  NbToastrModule,
-  NbUserModule
-} from '@nebular/theme';
 import {SharedModule} from '../shared/shared.module';
 import {CrudTableComponent} from './components/crud-table/crud-table.component';
 import {HeaderComponent} from './components/header/header.component';
 import {MenuComponent} from './components/menu/menu.component';
 import {MainLayoutComponent} from './layout/main.layout.component';
+import {
+  MatSidenavModule,
+  MatTableModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatInputModule,
+  MatFormFieldModule
+} from '@angular/material';
 
 
-const NB_MODULES = [
-  NbLayoutModule,
-  NbSidebarModule,
-  NbMenuModule,
-  NbActionsModule,
-  NbCardModule,
-  NbButtonModule,
-  NbInputModule,
-  NbToastrModule,
-  NbUserModule,
-  NbListModule,
-  NbRadioModule,
-  NbCheckboxModule
+const MD_MODULES = [
+  MatButtonModule,
+  MatToolbarModule,
+  MatTableModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatInputModule,
+  MatFormFieldModule
 ];
 
-const UI_PROVIDERS = [
-  NbThemeModule.forRoot({name: 'corporate'}).providers,
-  NbSidebarModule.forRoot().providers,
-  NbMenuModule.forRoot().providers,
-  NbToastrModule.forRoot({
-    destroyByClick: true,
-    duration: 5000,
-    preventDuplicates: true
-  }).providers
-];
+const UI_PROVIDERS = [];
 
 const COMPONENTS = [
   MainLayoutComponent,
@@ -60,8 +40,8 @@ const PIPES = [];
 const ENTRY_COMPONENTS = [];
 
 @NgModule({
-  imports: [...NB_MODULES, RouterModule, SharedModule],
-  exports: [...COMPONENTS, ...NB_MODULES],
+  imports: [...MD_MODULES, RouterModule, SharedModule],
+  exports: [...COMPONENTS, ...MD_MODULES],
   declarations: [...COMPONENTS, ...PIPES],
   entryComponents: [...ENTRY_COMPONENTS]
 })
