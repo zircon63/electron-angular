@@ -14,9 +14,6 @@ export class DatabaseService {
         const dbPath = path.resolve(app.getPath('userData'), 'database.db');
         const sqlite3 = window.require('sqlite3').verbose();
         this.db = new sqlite3.Database(dbPath);
-        this.db.get('select * from room', (err, result) => {
-          console.log(result);
-        });
       } catch (e) {
         throw e;
       }
