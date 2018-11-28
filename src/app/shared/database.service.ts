@@ -1,4 +1,4 @@
-import {Injectable, NgZone} from '@angular/core';
+import {Injectable, isDevMode, NgZone} from '@angular/core';
 import {Observable, Observer} from 'rxjs';
 import {Database} from 'sqlite3';
 
@@ -9,8 +9,14 @@ export class DatabaseService {
   constructor(private ngZone: NgZone) {
     if (window.require) {
       try {
+        const {app} = window.require('electron').remote;
+        const path = window.require('path');
+        const dbPath = path.resolve(app.getPath('userData'), 'database.db');
         const sqlite3 = window.require('sqlite3').verbose();
-        this.db = new sqlite3.Database('database/database.db');
+        this.db = new sqlite3.Database(dbPath);
+        this.db.get('select * from room', (err, result) => {
+          console.log(result);
+        });
       } catch (e) {
         throw e;
       }

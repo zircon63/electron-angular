@@ -1,44 +1,65 @@
 import {app, BrowserWindow, screen} from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import * as fs from 'fs';
 
 let win, serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
+
+const dbPath = path.join(app.getPath('userData'), 'database.db');
+
+const copyDataBase: Promise<any> = new Promise((resolve, reject) => {
+  if (fs.existsSync(dbPath)) {
+    resolve();
+  } else {
+    const source = path.join(__dirname, `./${serve ? 'src' : 'dist'}/assets/database.db`);
+    const rd = fs.createReadStream(source);
+    rd.on('error', reject);
+    const wr = fs.createWriteStream(dbPath);
+    wr.on('error', reject);
+    wr.on('finish', resolve);
+    rd.pipe(wr);
+  }
+});
+
 function createWindow() {
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
-
   // Create the browser window.
-  win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height
-  });
-
-  if (serve) {
-    require('electron-reload')(__dirname, {
-      electron: require(`${__dirname}/node_modules/electron`)
+  copyDataBase.then(() => {
+    win = new BrowserWindow({
+      x: 0,
+      y: 0,
+      width: size.width,
+      height: size.height
     });
-    win.loadURL('http://localhost:4200');
-  } else {
-    win.loadURL(url.format({
-      pathname: path.join(__dirname, 'dist/index.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-  }
-  win.webContents.openDevTools();
 
-  // Emitted when the window is closed.
-  win.on('closed', () => {
-    // Dereference the window object, usually you would store window
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    win = null;
+    if (serve) {
+      require('electron-reload')(__dirname, {
+        electron: require(`${__dirname}/node_modules/electron`)
+      });
+      win.loadURL('http://localhost:4200');
+    } else {
+      win.loadURL(url.format({
+        pathname: path.join(__dirname, 'dist/index.html'),
+        protocol: 'file:',
+        slashes: true
+      }));
+    }
+    win.webContents.openDevTools();
+
+
+    // Emitted when the window is closed.
+    win.on('closed', () => {
+      // Dereference the window object, usually you would store window
+      // in an array if your app supports multi windows, this is the time
+      // when you should delete the corresponding element.
+      win = null;
+    });
   });
+
 
 }
 
