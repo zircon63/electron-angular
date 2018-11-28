@@ -3,7 +3,7 @@
   "directories": {
     "output": "release/"
   },
-  "compression": "store",
+  "compression": "maximum",
   "files": [
     "**/*",
     "!**/*.ts",
