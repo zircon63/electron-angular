@@ -1,0 +1,73 @@
+<button type="button" mat-button color="accent" (click)="add()">ADD RESERVATION</button>
+<app-crud-table [items]="items" #crud>
+  <ng-template #tableHead>
+    <tr>
+      <th scope="col">Date In</th>
+      <th scope="col">Date Out</th>
+      <th scope="col">Guest</th>
+      <th scope="col">Room</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template #readTemplate let-reservation>
+    <td>{{reservation.date_in | date: 'dd/MM/yyyy'}}</td>
+    <td>{{reservation.date_out | date: 'dd/MM/yyyy'}}</td>
+    <td>{{reservation.guest_id}}</td>
+    <td>{{reservation.room_id}}</td>
+    <td>{{reservation.status_id}}</td>
+    <td>
+      <button mat-button (click)="edit(reservation)" color="accent" [disabled]="reservation.employee_id !== employee.id">Edit</button>
+      <button mat-button (click)="remove(reservation)" color="warn" [disabled]="reservation.employee_id !== employee.id">Remove</button>
+    </td>
+  </ng-template>
+  <ng-template #editTemplate>
+    <td>
+      <mat-form-field>
+        <input matInput [matDatepicker]="date_in" placeholder="Choose a date in" [min]="minDate"
+               [(ngModel)]="crud.editedItem.date_in">
+        <mat-datepicker-toggle matSuffix [for]="date_in"></mat-datepicker-toggle>
+        <mat-datepicker #date_in></mat-datepicker>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field>
+        <input matInput [matDatepicker]="date_out" placeholder="Choose a date out" [min]="minDate"
+               [(ngModel)]="crud.editedItem.date_out">
+        <mat-datepicker-toggle matSuffix [for]="date_out"></mat-datepicker-toggle>
+        <mat-datepicker #date_out></mat-datepicker>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field color="accent">
+        <mat-select placeholder="Select Guest" [(ngModel)]="crud.editedItem.guest_id">
+          <mat-option *ngFor="let guest of guests" [value]="guest.id">
+            {{guest.last_name}} {{guest.first_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field color="accent">
+        <mat-select placeholder="Select Room" [(ngModel)]="crud.editedItem.room_id" [disabled]="rooms.length === 0">
+          <mat-option *ngFor="let room of rooms" [value]="room.id">
+            {{room.number}} {{room.price | currency}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field color="accent">
+        <mat-select placeholder="Select Status" [(ngModel)]="crud.editedItem.status_id">
+          <mat-option *ngFor="let status of statuses" [value]="status.id">
+            {{status.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+    <td>
+      <button mat-button (click)="save()" color="accent">Save</button>
+      <button mat-button (click)="cancel()" color="accent">Cancel</button>
+    </td>
+  </ng-template>
+</app-crud-table>

@@ -12,8 +12,9 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatInputModule,
-  MatFormFieldModule, MatSelectModule,
+  MatFormFieldModule, MatSelectModule, MatSnackBarModule, MatDatepickerModule, MatNativeDateModule, MatTooltipModule,
 } from '@angular/material';
+import {AuthLayoutComponent} from './layout/auth.layout.component';
 
 
 const MD_MODULES = [
@@ -24,13 +25,20 @@ const MD_MODULES = [
   MatIconModule,
   MatInputModule,
   MatFormFieldModule,
-  MatSelectModule
+  MatSelectModule,
+  MatSnackBarModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatTooltipModule
 ];
 
-const UI_PROVIDERS = [];
+const UI_PROVIDERS = [
+  MatDatepickerModule
+];
 
 const COMPONENTS = [
   MainLayoutComponent,
+  AuthLayoutComponent,
   MenuComponent,
   HeaderComponent,
   CrudTableComponent

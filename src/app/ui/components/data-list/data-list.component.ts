@@ -1,18 +1,26 @@
 import {OnDestroy, ViewChild} from '@angular/core';
 import {CrudTableComponent} from '../crud-table/crud-table.component';
 import {CrudOperation} from '../../../pages/shared/crud.operation';
-import {Subscription} from 'rxjs';
 import {BaseEntity} from '../../../pages/shared/base.entity';
+import {takeWhile} from 'rxjs/operators';
 
 export abstract class DataListComponent<T extends BaseEntity> implements OnDestroy {
   @ViewChild('crud') crud: CrudTableComponent<T>;
   items: T[];
   emptyItem: T;
-  private items$: Subscription;
+  protected isAvile = true;
 
   protected constructor(protected service: CrudOperation<T>) {
     this.emptyItem = service.emptyInstace();
-    this.items$ = service.getAll().subscribe(items => this.items = items);
+    this.loadItems();
+  }
+
+  loadItems() {
+    this.service.getAll()
+      .pipe(
+        takeWhile(() => this.isAvile)
+      )
+      .subscribe(items => this.items = items);
   }
 
   onEdit() {
@@ -61,7 +69,7 @@ export abstract class DataListComponent<T extends BaseEntity> implements OnDestr
   }
 
   ngOnDestroy(): void {
-    this.items$.unsubscribe();
+    this.isAvile = false;
   }
 
 

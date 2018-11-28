@@ -21,4 +21,8 @@ export class HeaderComponent implements OnInit {
   show() {
     this.menuService.show();
   }
+
+  logout() {
+    this.authService.logout();
+  }
 }

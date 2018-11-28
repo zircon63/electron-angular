@@ -1,6 +1,10 @@
 <form [formGroup]="loginForm" (submit)="login()">
-  <input type="text" placeholder="login" formControlName="login">
-  <input type="password" placeholder="password" formControlName="password">
-  <button nbButton type="submit">Login</button>
+  <mat-form-field>
+    <input type="text" matInput placeholder="login" formControlName="login">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="password" matInput placeholder="password" formControlName="password">
+  </mat-form-field>
+  <button mat-button type="submit" color="accent">Login</button>
 </form>
 

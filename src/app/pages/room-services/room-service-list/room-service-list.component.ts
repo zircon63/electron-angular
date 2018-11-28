@@ -5,7 +5,7 @@ import {Service} from '../../services/shared/service';
 import {RoomServicesService} from '../shared/room-services.service';
 import {debounceTime, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 import {RoomService} from '../shared/room-service';
-import {MatOptionSelectionChange, MatSelect, MatSelectChange} from '@angular/material';
+import {MatOptionSelectionChange, MatSelect, MatSnackBar} from '@angular/material';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -22,6 +22,7 @@ export class RoomServiceListComponent implements OnInit, AfterViewInit {
   private options$: Subscription;
 
   constructor(private roomServices: RoomServicesService,
+              private snackBar: MatSnackBar,
               private fb: FormBuilder) {
   }
 
@@ -70,8 +71,8 @@ export class RoomServiceListComponent implements OnInit, AfterViewInit {
               }
             })
           )
-          .subscribe((data) => {
-            console.log(data);
+          .subscribe(() => {
+            this.snackBar.open('Success!', 'OK');
           });
 
       });

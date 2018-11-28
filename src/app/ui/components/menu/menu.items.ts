@@ -18,5 +18,9 @@ export const MENU_ITEMS = [
   {
     title: 'Room Services',
     link: '/room-services/list'
+  },
+  {
+    title: 'Reservation',
+    link: '/reservation/list'
   }
 ];

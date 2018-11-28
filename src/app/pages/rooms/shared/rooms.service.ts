@@ -14,7 +14,15 @@ export class RoomsService implements CrudOperation<Room> {
   }
 
   getAll(): Observable<Room[]> {
-    const query = 'SELECT * FROM room';
+    const query = 'SELECT * from room';
+    return this.db.all(query)
+      .pipe(
+        map((values: Room[]) => values.map((value: Room) => new Room(value)))
+      );
+  }
+
+  getFree(): Observable<Room[]> {
+    const query = 'SELECT * from FreeRooms';
     return this.db.all(query)
       .pipe(
         map((values: Room[]) => values.map((value: Room) => new Room(value)))

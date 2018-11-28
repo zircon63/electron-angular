@@ -6,6 +6,7 @@ import {environment} from '../../../environments/environment';
 import {DatabaseService} from '../../shared/database.service';
 import {Employee} from './employee';
 import {User} from './user';
+import {MatSnackBar} from '@angular/material';
 
 @Injectable()
 export class AuthService {
@@ -13,6 +14,7 @@ export class AuthService {
   private crypto: any;
 
   constructor(private db: DatabaseService,
+              private snackBar: MatSnackBar,
               private router: Router) {
     if (window.require) {
       try {
@@ -26,7 +28,7 @@ export class AuthService {
   }
 
   get isAuth(): boolean {
-    return true; // !!this.employee;
+    return !!this.employee;
   }
 
   get currentEmployee(): Employee {
@@ -39,7 +41,7 @@ export class AuthService {
 
   logout() {
     this.employee = null;
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/auth/login']);
   }
 
   login(data: User) {
@@ -48,12 +50,20 @@ export class AuthService {
       password: this.MD5(data.password + environment.HASH_SALT)
     });
     const query = `SELECT * FROM employee WHERE employee.login = '${user.login}' AND employee.password = '${user.password}'`;
-
-    this.db.get<Employee>(query).pipe(
+    const login$ = this.db.get<Employee>(query).pipe(
+      map(value => {
+        if (value) {
+          return new Employee(value);
+        } else {
+          throw new Error('Not found employee!');
+        }
+      })
+    );
+    login$.pipe(
       catchError((error: Error) => {
+        this.snackBar.open(error.message, 'OK');
         return EMPTY;
-      }),
-      map(value => new Employee(value))
+      })
     )
       .subscribe((employee: Employee) => {
         this.employee = employee;

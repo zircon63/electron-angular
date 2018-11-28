@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
-import {forkJoin, Observable} from 'rxjs';
+import {forkJoin, Observable, of} from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
 import {DatabaseService} from '../../../shared/database.service';
 import {RoomsService} from '../../rooms/shared/rooms.service';
 import {ServiceService} from '../../services/shared/service.service';
 import {CrudOperation} from '../../shared/crud.operation';
 import {RoomService} from './room-service';
-import {Room} from '../../rooms/shared/room';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +17,6 @@ export class RoomServicesService implements CrudOperation<RoomService> {
               private db: DatabaseService) {
   }
 
-  get Rooms$(): Observable<Room[]> {
-    return this.roomsService.getAll();
-  }
-
   getRoomsAndServices() {
     return forkJoin(this.roomsService.getAll(), this.serviceService.getAll());
   }
@@ -29,14 +24,14 @@ export class RoomServicesService implements CrudOperation<RoomService> {
   create(item: RoomService): Observable<RoomService[]> {
     const query = `INSERT INTO room_services (room_id,service_id) VALUES('${item.room_id}','${item.service_id}')`;
     return this.db.get(query).pipe(
-      switchMap(() => this.getAll())
+      switchMap(() => of([item]))
     );
   }
 
   edit(item: RoomService): Observable<RoomService[]> {
     const query = `UPDATE room_services SET room_id= '${item.room_id}', service_id='${item.service_id}' WHERE room_services.id = ${item.id}`;
     return this.db.get(query).pipe(
-      switchMap(() => this.getAll())
+      switchMap(() => of([item]))
     );
   }
 
@@ -67,7 +62,7 @@ export class RoomServicesService implements CrudOperation<RoomService> {
   remove(item: RoomService): Observable<RoomService[]> {
     const query = `DELETE FROM room_services WHERE room_services.room_id = '${item.room_id}' and room_services.service_id = '${item.service_id}'`;
     return this.db.get(query).pipe(
-      switchMap(() => this.getAll())
+      switchMap(() => of([item]))
     );
   }
 }

@@ -1,8 +1,15 @@
-<!--
-<nb-user [name]="employee.fullName" title="Employee"></nb-user>
--->
 <mat-toolbar>
-  <button mat-button (click)="show()">
-    <mat-icon>reorder</mat-icon>
-  </button>
+  <ng-template [ngIf]="employee" [ngIfElse]="loggedOut">
+    <button mat-button [matTooltip]="'menu'" (click)="show()">
+      <mat-icon>reorder</mat-icon>
+    </button>
+    <h3>Employee: {{employee.fullName}}</h3>
+    <button mat-button [matTooltip]="'logout'" (click)="logout()">
+      <mat-icon>account_box</mat-icon>
+    </button>
+  </ng-template>
+
+  <ng-template #loggedOut>
+    Auth Form | Hotel Electron
+  </ng-template>
 </mat-toolbar>

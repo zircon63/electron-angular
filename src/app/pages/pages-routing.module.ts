@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {ExtraOptions, PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '../auth';
 import {PagesComponent} from './pages.component';
 
@@ -23,14 +23,22 @@ const routes: Routes = [
       {
         path: 'room-services',
         loadChildren: './room-services/room-services.module#RoomServicesModule',
+      },
+      {
+        path: 'reservation',
+        loadChildren: './reservation/reservation.module#ReservationModule',
       }
     ],
     canActivate: [AuthGuard]
   }
 ];
+const config: ExtraOptions = {
+  useHash: true,
+  preloadingStrategy: PreloadAllModules
+};
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule]
 })
 export class PagesRoutingModule {
